@@ -19,7 +19,7 @@ fetch("https://fakestoreapi.com/products")
         <div class="product-container" id=${index}>
         <div class="product-image"><img src=${obj.image} /></div>
         <div class="product-title">${obj.title}</div>
-        <div class="product-price">${obj.price} $</div>
+        <div class="product-price"><h3>${obj.price} $</h3></div>
         <div class="product-rating">${(obj.rating.rate)}/5</div>
         <div class="add-to-cart" onclick="handleCart(${index})">Add to cart <i class="fa-solid fa-cart-plus"></i></div>
         </div>`;
@@ -166,7 +166,7 @@ function cartQtyDecrement(id){
             if(obj["qty"]>1){
               obj["qty"] = obj.qty-1;
             }else{
-                alert("Quantity must be minimun of one")
+                alert("Quantity must be minimum of one")
             }
         }
     })
@@ -176,6 +176,11 @@ function cartQtyDecrement(id){
     calulateCartValue();
 }
 
+
+const toggle = document.getElementsByClassName("toggle-button");
+const navbar = document.getElementById("nav-class");
+// console.log(navbar);
+toggle[0].addEventListener("click",()=>{navbar.classList.toggle("hide")});
 
 
 
