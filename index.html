@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopie</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <script src="https://kit.fontawesome.com/ec13a56720.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <Section class="header">
+    <div class="logo"><img src="./shopify-seeklogo.com.svg" alt="logo" /></div>
+    <div>
+      <ul class="nav-bar">
+       <li><a href="#">Home</a></li>
+       <li><a href="#">About Us</a></li>
+       <li><a href="#">Shop</a></li>
+       <li><a href="#">Contact us</a></li>
+       <li id="cart-header"><i class="fa-solid fa-cart-shopping"></i></li>
+       <li id="profile-header"><i class="fa-solid fa-user"></i></li>
+     </ul>
+    </div>
+  </section>
+  <section class="cart" id="mycart">
+    <div class="close" id="cart-close"><i class="fa-sharp fa-solid fa-xmark"></i></div>
+    <div class="cart-heading">Your Cart</div>
+    <div class="total" id="total">
+      Cart Value = <span id="total-cart-value">0</span> $
+    </div>
+    <div id="cart-list"></div>
+  </section>
+  <dialog id="popup" class="modal">
+    <button class="btn" id="popup-close"><i class="fa-solid fa-xmark"></i></button>
+    <br/>
+    <form class="login-form">
+        <label for="username" >Username:</label>
+        <input type="text" id="username" required/>
+      <br/>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required/>
+      <br/>
+      <button class="login-btn">Login</button>
+      <p>New User <a href="#">register_first</a></p>
+    </form>
+  </dialog>
+   <h2 class="title">Today's Top Deal</h2>
+  <section id="list">
+  </section>
+  <footer class="footer">
+    <div class="footer-address">
+      <h3>Shopie</h3>
+      <p>Lorem ipsum dolor sit amet
+        voluptas iure!</p>
+        <h5>Pincode : 550-550-7752</h5>
+        <h5>email: shopie@myShopie.co.in</h5>
+    </div>
+    <div class="footer-copyright">
+      <h3><i class="fa-solid fa-copyright"></i> All rights are reserved</h3>
+    </div>
+    <div class="footer-socialmedia">
+      <div><i class="fa-brands fa-facebook"></i></div>
+      <div><i class="fa-brands fa-instagram"></i></div>
+      <div><i class="fa-brands fa-github"></i></div>
+    </div>
+  </footer>
+</body>
+</html>
