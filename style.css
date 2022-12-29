@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+#preloader{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: black url(https://media4.giphy.com/media/tA4R6biK5nlBVXeR7w/giphy.gif?cid=ecf05e471eyn2elecejz5yg794lsbvhe757vyo47t42179oe&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loader-text{
+  font-weight: 400;
+  font-size: large;
+}
 .container{
     text-align:center;
     padding:1rem;
@@ -304,16 +321,18 @@
 
   .hide{
     display: none;
-    transition: 0.2s ease-in-out;
+    /* left: 250px; */
   }
 
   .nav-bar{
     flex-direction: column;
     display: absolute;
     top:224px;
-    right: 0;
+    right: -5px;
     background-color: whitesmoke;
     padding: 1.5rem;
+    transition: 0.2s ease-in-out;
+    /* right: -500px; */
   }
   .nav-bar li{
     padding: 1rem;

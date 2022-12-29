@@ -182,6 +182,7 @@ const navbar = document.getElementById("nav-class");
 // console.log(navbar);
 toggle[0].addEventListener("click",()=>{navbar.classList.toggle("hide")});
 
-
-
-
+let loader = document.getElementById("preloader");
+setTimeout(()=>{
+    loader.style.display="none";
+},3000)
