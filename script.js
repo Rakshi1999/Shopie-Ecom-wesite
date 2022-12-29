@@ -47,6 +47,7 @@ function cartProductContainer(obj){
               <div class="cart-image"><img src=${obj.image} /></div>
               <div class="cart-title">${obj.title}</div>
              </div>
+             <div>${obj.price} $</div>
              <div class="qty">Qty: <span id="cart-qty">${obj.qty}</span>
               <button class="cart-btn" onclick="cartQtyIncrement(${obj.id})" id="cart-plus">+</button>
               <button class="cart-btn" onclick="cartQtyDecrement(${obj.id})" id="cart-minus">-</button>
@@ -185,4 +186,6 @@ toggle[0].addEventListener("click",()=>{navbar.classList.toggle("hide")});
 let loader = document.getElementById("preloader");
 setTimeout(()=>{
     loader.style.display="none";
-},3000)
+},4000)
+
+// window.addEventListener("load",()=>{loader.style.display="none"});
