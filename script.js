@@ -235,7 +235,7 @@ function checkLogin(){
                 userLoggedIn = true;
                 logout.classList.remove("hide");
             }else{
-                alert("Invalid Email");
+                alert("Password does not match");
             }
         }else{
             alert("User does't exists");
