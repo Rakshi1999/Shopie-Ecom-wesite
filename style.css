@@ -361,4 +361,7 @@
   .footer > div{
     margin: 0.8rem;
   }
+  .modal{
+    padding: 0.5rem;
+  }
 }
