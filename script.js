@@ -7,6 +7,10 @@ const productContainer = document.getElementsByClassName("product-container");
 const closePopUpBtn = document.getElementById("popup-close");
 const modal = document.querySelector(".modal");
 const cartValue = document.getElementById("total-cart-value");
+const register_popup = document.getElementById("register-popup");
+const signUp = document.getElementById("signUp");
+const logout = document.getElementById("logout");
+let userLoggedIn = false;
 let storeData = [];
 let cart=[];
 // let search = document.getElementById("search-bar");
@@ -35,7 +39,22 @@ function showCart(){
 cartHeader.addEventListener("click",showCart);
 cartClose.addEventListener("click",showCart);
 closePopUpBtn.addEventListener("click",()=>{modal.close()});
-profileLogin.addEventListener("click",()=>{modal.showModal()});
+profileLogin.addEventListener("click",()=>{
+    console.log(userLoggedIn);
+    if(userLoggedIn){
+        logout.focus();
+    }else{
+        document.getElementById("useremail").value = "";
+        document.getElementById("password").value = "";
+        modal.showModal();
+    }
+});
+
+logout.onclick = () =>{
+    userLoggedIn=false;
+    document.getElementById("profileName").innerText="";
+    logout.classList.add("hide");
+}
 
 
 const cart_list = document.getElementById("cart-list");
@@ -51,7 +70,7 @@ function cartProductContainer(obj){
              <div class="qty">Qty: <span id="cart-qty">${obj.qty}</span>
               <button class="cart-btn" onclick="cartQtyIncrement(${obj.id})" id="cart-plus">+</button>
               <button class="cart-btn" onclick="cartQtyDecrement(${obj.id})" id="cart-minus">-</button>
-              <button class="cart-btn" id="remove" onclick="removeFromCart(${obj.id})">Remove</button>
+              <button class="cart-btn" id="remove" onclick="removeFromCart(${obj.id})"><i class="fa-solid fa-trash"></i></button>
              </div>
             </div>
         `;
@@ -62,19 +81,6 @@ function addToCart(i){
         let obj = storeData[i];
         obj["qty"] = 1;
         cart.push(obj);
-        // let product =`
-        //    <div class="cart-outter">
-        //      <div class="cart-container">
-        //       <div class="cart-image"><img src=${obj.image} /></div>
-        //       <div class="cart-title">${obj.title}</div>
-        //      </div>
-        //      <div class="qty">Qty: <span id="cart-qty">${obj.qty}</span>
-        //       <button class="cart-btn" id="cart-plus">+</button>
-        //       <button class="cart-btn" id="cart-minus">-</button>
-        //       <button class="cart-btn" id="remove" onclick="removeFromCart(${obj.id})">Remove</button>
-        //      </div>
-        //     </div>
-        // `;
         let product = cartProductContainer(obj);
         // console.log(product);
         cart_list.insertAdjacentHTML("beforeend",product);
@@ -114,19 +120,6 @@ function handleCart(i){
 function refreshCart(){
     if(cart.length!=0){
       cart.forEach((obj)=>{
-            // let product =`
-            // <div class="cart-outter">
-            //  <div class="cart-container">
-            //   <div class="cart-image"><img src=${obj.image} /></div>
-            //   <div class="cart-title">${obj.title}</div>
-            //  </div>
-            //  <div class="qty">Qty: <span id="cart-qty">${obj.qty}</span>
-            //   <button class="cart-btn" id="cart-plus">+</button>
-            //   <button class="cart-btn" id="cart-minus">-</button>
-            //   <button class="cart-btn" id="remove" onclick="removeFromCart(${obj.id})">Remove</button>
-            //  </div>
-            // </div>
-            // `;
             let product = cartProductContainer(obj);
             cart_list.insertAdjacentHTML("beforeend",product);
             // console.log(obj.qty);
@@ -189,3 +182,64 @@ setTimeout(()=>{
 },4000)
 
 // window.addEventListener("load",()=>{loader.style.display="none"});
+
+const obj={
+    userName:"",
+    userEmail:"",
+    password:"",
+} 
+function registerHandle(){
+    const data = JSON.parse(localStorage.getItem("userData"));
+    if(data){
+        data.push(obj);
+        localStorage.setItem("userData",JSON.stringify(data));
+    }else{
+        userData = [];
+        userData.push(obj);
+        localStorage.setItem("userData", JSON.stringify(userData));
+    }
+    register_popup.close();
+}
+
+function onChangeHandler(){
+    obj.userName = document.getElementById("name").value;
+    obj.userEmail = document.getElementById("email").value;
+    obj.password = document.getElementById("register-password").value;
+}
+
+function confirmPassword(){
+    const temp = document.getElementById("confirmpassword").value;
+    if(obj.password!==temp){
+        document.getElementById("confirmpassword").style.backgroundColor="red";
+    }
+
+    if(obj.password===temp){
+        document.getElementById("confirmpassword").style.backgroundColor="green";
+    }
+}
+
+signUp.onclick=()=>{
+    register_popup.showModal();
+}
+
+function checkLogin(){
+    let Email = document.getElementById("useremail").value;
+    let password = document.getElementById("password").value;
+    userDataInLocal =JSON.parse(localStorage.getItem("userData"));
+    console.log(userDataInLocal);
+    userDataInLocal.forEach((obj)=>{
+        if(obj.userEmail===Email){
+            if(obj.password===password){
+                document.getElementById("profileName").innerText = obj.userName;
+                modal.close();
+                userLoggedIn = true;
+                logout.classList.remove("hide");
+            }else{
+                alert("Invalid Email");
+            }
+        }else{
+            alert("User does't exists");
+        }
+    })
+
+}

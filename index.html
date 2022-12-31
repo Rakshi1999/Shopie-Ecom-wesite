@@ -25,7 +25,8 @@
        <li><a href="./back-up.html">Shop</a></li>
        <li><a href="./back-up.html">Contact us</a></li>
        <li id="cart-header"><i class="fa-solid fa-cart-shopping"></i></li>
-       <li id="profile-header"><i class="fa-solid fa-user"></i></li>
+       <li id="profile-header"><i class="fa-solid fa-user"></i><span id="profileName"></span></li>
+       <button id="logout" class="logout-btn hide"><i class="fa-solid fa-power-off"></i></button>
      </ul>
     </div>
   </section>
@@ -41,17 +42,35 @@
     <button class="btn" id="popup-close"><i class="fa-solid fa-xmark"></i></button>
     <br/>
     <form class="login-form">
-        <label for="username" >Username:</label>
-        <input type="text" id="username" required/>
+        <label for="username" >Email:</label>
+        <input type="text" id="useremail" required/>
       <br/>
         <label for="password">Password:</label>
         <input type="password" id="password" required/>
       <br/>
-      <button class="login-btn">Login</button>
-      <p>New User <a href="#">Sign-up</a></p>
+      <button class="login-btn" onclick="checkLogin()">Login</button>
+      <p>New User <a href="#" id="signUp">Sign-up</a></p>
     </form>
   </dialog>
-   <h2 class="title">Today's Top Deal</h2>
+  <dialog id="register-popup" class="modal">
+    <h2>Register here!!!</h2>
+    <form onsubmit="registerHandle()">
+      <label for="name">Name</label>
+      <input type="text" id="name" onchange="onChangeHandler()" required/>
+      <br/>
+      <label for="email">Email</label>
+      <input type="email" id="email" onchange="onChangeHandler()" required/>
+      <br/>
+      <label for="password">Password</label>
+      <input type="password" min="6" max="10" id="register-password" onchange="onChangeHandler()" required/>
+      <br/>
+      <label >Confirm Password</label>
+      <input type="password" min="6" max="10" id="confirmpassword" onchange="confirmPassword()" required/>
+      <br/>
+      <button type="submit">Sign-up</button>
+    </form>
+  </dialog>
+  <h2 class="title">Today's Top Deal</h2>
   <section id="list">
   </section>
   <footer class="footer">

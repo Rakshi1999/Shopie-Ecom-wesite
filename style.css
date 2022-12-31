@@ -32,7 +32,9 @@
 .hide{
   display: none;
 }
-
+#logout{
+  width: 30px;
+}
 .modal{
   position: relative;
   top: 50%;
@@ -70,7 +72,14 @@
   background-color: black;
   border-radius: 5px;
 }
-
+/* #register-popup{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 350px;
+  min-height: 300px;
+} */
 .login-form{
   display: block;
   margin: 0.8rem auto;
@@ -122,9 +131,10 @@
 }
 
 .cart-btn{
+  width: 30px;
   padding: 0.2rem;
   font-size: large;
-  font-weight: 450;
+  font-weight: 650;
 }
 
 .cart-container{
@@ -137,9 +147,14 @@
   align-items: center;
   justify-content: space-evenly;
 }
+.cart-outter{
+  /* outline: 2px solid black; */
+  padding: 0.5rem 0rem;
+  margin: 0.5rem 0rem; 
+}
 .cart-outter div{
   /* border: 2px solid black; */
-  margin: 0.8rem;
+  margin: 0.5rem;
 }
 .cart-container img{
   width: 50px;
