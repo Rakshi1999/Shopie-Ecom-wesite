@@ -11,6 +11,7 @@ const register_popup = document.getElementById("register-popup");
 const signUp = document.getElementById("signUp");
 const logout = document.getElementById("logout");
 let userLoggedIn = false;
+let confirmUserPassword = false;
 let storeData = [];
 let cart=[];
 // let search = document.getElementById("search-bar");
@@ -188,7 +189,11 @@ const obj={
     userEmail:"",
     password:"",
 } 
-function registerHandle(){
+function registerHandle(event){
+    event.preventDefault();
+    if(!confirmUserPassword){
+        return alert("confirm password did't match");
+    }
     const data = JSON.parse(localStorage.getItem("userData"));
     if(data){
         data.push(obj);
@@ -209,12 +214,14 @@ function onChangeHandler(){
 
 function confirmPassword(){
     const temp = document.getElementById("confirmpassword").value;
+    
     if(obj.password!==temp){
-        document.getElementById("confirmpassword").style.backgroundColor="red";
+        document.getElementById("confirmpassword").style.border="2px solid red";
     }
 
     if(obj.password===temp){
-        document.getElementById("confirmpassword").style.backgroundColor="green";
+        document.getElementById("confirmpassword").style.border="2px solid green";
+        confirmUserPassword=true;
     }
 }
 
@@ -241,5 +248,4 @@ function checkLogin(){
             alert("User does't exists");
         }
     })
-
 }

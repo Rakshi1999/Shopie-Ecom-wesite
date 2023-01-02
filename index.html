@@ -43,7 +43,7 @@
     <br/>
     <form class="login-form">
         <label for="username" >User-Email:</label>
-        <input type="text" id="useremail" required/>
+        <input type="text" id="useremail" required type="email"/>
       <br/>
         <label for="password">Password:</label>
         <input type="password" id="password" required/>
@@ -54,7 +54,7 @@
   </dialog>
   <dialog id="register-popup" class="modal">
     <h2>Register here!!!</h2>
-    <form onsubmit="registerHandle()">
+    <form onsubmit="registerHandle(event)">
       <label for="name">Name</label>
       <input type="text" id="name" onchange="onChangeHandler()" required/>
       <br/>

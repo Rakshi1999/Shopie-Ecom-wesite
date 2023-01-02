@@ -72,14 +72,42 @@
   background-color: black;
   border-radius: 5px;
 }
-/* #register-popup{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  min-width: 350px;
-  min-height: 300px;
-} */
+#register-popup{
+  text-align: center;
+  padding: 0.5rem;
+}
+#register-popup form{
+  margin: 1rem 0.5rem;
+  padding: 0.8rem 0rem;
+  /* background-color: aqua; */
+}
+#register-popup form label,
+#register-popup form input{
+  margin:1rem 0rem;
+  padding: 0.4rem 0.4rem;
+}
+#register-popup form label{
+  text-align: right;
+}
+#register-popup form input{
+  width: 100%;
+
+}
+#register-popup form input:focus{
+  border: 0px;
+  outline: 0px;
+}
+#register-popup form button{
+  width: 60%;
+  padding: 0.8rem;
+  background-color: yellowgreen;
+  transition: 0.2s ease-in-out;
+  border-radius: 5px;
+}
+#register-popup form button:hover{
+  box-shadow: 0px 0px 10px grey,-0px -0px 10px grey;
+  background-color: rgb(146, 146, 233);
+}
 .login-form{
   display: block;
   margin: 0.8rem auto;
